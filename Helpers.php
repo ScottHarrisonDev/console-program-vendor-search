@@ -20,7 +20,7 @@ if (! function_exists('parseLocation')) {
         switch (strlen($postcode)) {
             case 5:
                 return substr($postcode, 0, 1);
-            case 6:
+            default:
                 return substr($postcode, 0, 2);
         }
     }

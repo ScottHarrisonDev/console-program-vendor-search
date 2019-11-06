@@ -1,7 +1,7 @@
 ## Check pseudocode
 - Check location
-    - If postcode length = 6 chars then we can assume it has a 2 char area code (`NW42QA` has `NW` for example)
     - If postcode length = 5 chars then we can assume it has a 1 char area code (`E32NY` has `E` for example)
+    - If postcode length > 5 chars then we can assume it has a 2 char area code (`NW42QA` has `NW` for example)
     - If area code defined above is found in any vendor restaurants they will pass this check
 - Check covers
     - Compare input covers with restaurant cover limit
