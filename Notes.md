@@ -1,0 +1,13 @@
+## Check pseudocode
+- Check location
+    - If postcode length = 6 chars then we can assume it has a 2 char area code (`NW42QA` has `NW` for example)
+    - If postcode length = 5 chars then we can assume it has a 1 char area code (`E32NY` has `E` for example)
+    - If area code defined above is found in any vendor restaurants they will pass this check
+- Check covers
+    - Compare input covers with restaurant cover limit
+    - If restaurant cover limit is greater than input covers this check will pass
+- Check time
+    - Create Date object from delivery date/time
+    - Create Date object from current date/time
+    - Get difference between the two Date objects
+    - If difference is greater than the item notice period/advance time then this check will pass
