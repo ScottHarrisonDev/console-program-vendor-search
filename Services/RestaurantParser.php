@@ -1,13 +1,11 @@
 <?php
 
-namespace foodFinder\Services;
+namespace Services;
 
-require './Models/Restaurant.php';
-require './Models/Meal.php';
-require './Helpers.php';
+require __DIR__.'/../vendor/autoload.php';
 
-use FoodFinder\Models\Restaurant;
-use FoodFinder\Models\Meal;
+use Models\Restaurant;
+use Models\Meal;
 
 class RestaurantParser
 {

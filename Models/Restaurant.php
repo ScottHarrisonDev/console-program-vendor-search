@@ -1,6 +1,8 @@
 <?php
 
-namespace foodFinder\Models;
+namespace Models;
+
+require __DIR__.'/../vendor/autoload.php';
 
 class Restaurant
 {

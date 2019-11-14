@@ -1,8 +1,8 @@
 <?php
 
-namespace foodFinder\Models;
+namespace Models;
 
-require './Helpers.php';
+require __DIR__.'/../vendor/autoload.php';
 
 class Meal
 {

@@ -1,0 +1,21 @@
+{
+    "name": "scottharrisondev/console-program-vendor-search",
+    "description": "Command line tool to get a list of meals and allergens based on a set of inputs.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Scott Harrison",
+            "email": "scott@scottharrisondesign.co.uk"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Models\\": "\\Models",
+            "Services\\": "\\Services"
+        },
+        "files": [
+            "Helpers.php"
+        ]
+    }
+}

@@ -1,10 +1,8 @@
 <?php
+require __DIR__.'/vendor/autoload.php';
 
-require './Models/Search.php';
-require './Services/RestaurantParser.php';
-
-use foodFinder\Models\Search;
-use foodFinder\Services\RestaurantParser;
+use Models\Search;
+use Services\RestaurantParser;
 
 // Get inputs as parsed structure
 $search = new Search($argv);
