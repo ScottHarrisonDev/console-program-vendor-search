@@ -1,10 +1,10 @@
 <?php
 
-require './Search.php';
-require './RestaurantParser.php';
+require './Models/Search.php';
+require './Services/RestaurantParser.php';
 
-use foodFinder\Search;
-use foodFinder\RestaurantParser;
+use foodFinder\Models\Search;
+use foodFinder\Services\RestaurantParser;
 
 // Get inputs as parsed structure
 $search = new Search($argv);

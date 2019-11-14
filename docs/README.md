@@ -14,8 +14,8 @@ Syntax:
 `php foodFinder.php [(string) File path to restaurant list] [(string) Date of delivery] [(string) Time of delivery] [(string) Postcode for delivery with no spaces] [(int) 9Headcount]`
 
 Examples:
-`php foodFinder.php "./example-input" "07/11/19" "15:00" "NW32QP" 20`
-`php foodFinder.php "./example-input" "08/11/19" "15:00" "SW32NY" 10`
+`php foodFinder.php "./restaurants" "07/11/19" "15:00" "NW32QP" 20`
+`php foodFinder.php "./restaurants" "08/11/19" "15:00" "SW32NY" 10`
 
 If no restaurants or meals are found suitable, nothing will be returned.
 
@@ -25,7 +25,7 @@ Below are some examples that have been manually checked and confirmed to work as
 ### Test 1
 Ran at 23:38 06/11/2019
 
-`php foodFinder.php "./example-input" "07/11/19" "15:00" "NW32QP" 20`
+`php foodFinder.php "./restaurants" "07/11/19" "15:00" "NW32QP" 20`
 
 Returns
 
@@ -34,7 +34,7 @@ Returns
 ### Test 2
 Ran at 23:39 06/11/2019
 
-`php foodFinder.php "./example-input" "08/11/19" "15:00" "SW32NY" 10`
+`php foodFinder.php "./restaurants" "08/11/19" "15:00" "SW32NY" 10`
 
 Returns
 
@@ -43,7 +43,7 @@ Returns
 ### Test 3
 Ran at 23:40 06/11/2019
 
-`php foodFinder.php "./example-input" "27/11/19" "15:00" "EC1A9DE" 10`
+`php foodFinder.php "./restaurants" "27/11/19" "15:00" "EC1A9DE" 10`
 
 Returns
 

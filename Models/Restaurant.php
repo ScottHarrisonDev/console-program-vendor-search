@@ -1,6 +1,6 @@
 <?php
 
-namespace foodFinder;
+namespace foodFinder\Models;
 
 class Restaurant
 {
