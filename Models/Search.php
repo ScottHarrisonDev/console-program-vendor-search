@@ -2,49 +2,89 @@
 
 namespace Models;
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DateTime;
 
-class Search 
+/**
+ * Class Search
+ * @package Models
+ */
+class Search
 {
 
-    public $inputFile;
+    /**
+     * @var mixed|string
+     */
+    private $inputFile;
 
+    /**
+     * @var DateTime|false
+     */
     private $deliveryDateTime;
 
+    /**
+     * @var false|string
+     */
     private $location;
 
+    /**
+     * @var int|mixed
+     */
     private $covers;
 
-    function __construct($arguments) {
-        unset($arguments[0]); // The first argument is always the filename being called (in this case "foodFinder.php" which we do not need)
-
-        $this->inputFile = $arguments[1];
-        $this->deliveryDateTime = parseDateTime($arguments[2], $arguments[3]);
-        $this->location = parseLocation($arguments[4]);
-        $this->covers = $arguments[5];
+    /**
+     * Search constructor.
+     * @param array $arguments
+     */
+    function __construct(string $inputFile, string $day, string $time, string $location, string $covers)
+    {
+        $this->inputFile = $inputFile;
+        $this->deliveryDateTime = parseDateTime($day, $time);
+        $this->location = parseLocation($location);
+        $this->covers = (int) $covers;
     }
 
-    public function checkLocation($restaurant) {
-        return $restaurant->location === $this->location;
+    /**
+     * @param Restaurant $restaurant
+     * @return bool
+     */
+    public function checkLocation(Restaurant $restaurant): bool
+    {
+        return $restaurant->getLocation() === $this->location;
     }
 
-    public function checkCovers($restaurant) {
-        return $restaurant->maxCovers >= $this->covers;
+    /**
+     * @param Restaurant $restaurant
+     * @return bool
+     */
+    public function checkCovers(Restaurant $restaurant): bool
+    {
+        return $restaurant->getMaxCovers() >= $this->covers;
     }
 
-    public function checkMealTimes($restaurants) {
+    /**
+     * @param array $restaurants
+     * @return array
+     */
+    public function checkMealTimes(array $restaurants): array
+    {
         $suitableMeals = [];
-        foreach($restaurants as $restaurant) {
-            foreach($restaurant->meals as $meal) {
-                if ($meal->advanceTime->getTimestamp() <= $this->deliveryDateTime->getTimestamp()) {
-                    $suitableMeals[] = $meal;
-                }
-            }
-        }
+        array_walk($restaurants, function (Restaurant $restaurant) use (&$suitableMeals): void {
+            $suitableMeals = array_merge($suitableMeals, array_filter($restaurant->getMeals(), function(Meal $meal): bool {
+                return $meal->getAdvanceTime()->getTimestamp() <= $this->deliveryDateTime->getTimestamp();
+            }));
+        });
 
         return $suitableMeals;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getInputFile(): string
+    {
+        return $this->inputFile;
     }
 
 }
